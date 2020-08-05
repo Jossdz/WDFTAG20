@@ -1,0 +1,16 @@
+/* 👇 selector */
+body {
+  /* 👆 bloque de propiedades */
+  background-color: beige;
+  /* 👆propiedad     valor👆 */
+  color: tomato;
+}
+
+.love {
+  font-size: larger;
+}
+
+.red-box {
+  background-color: rgba(255, 0, 0, 0.4);
+  color: aliceblue;
+}
