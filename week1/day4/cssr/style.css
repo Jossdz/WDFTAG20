@@ -7,7 +7,7 @@ section {
   left: 10vw;
 }
 
-.card {
+section > article {
   width: 45%;
   height: 90%;
   background-color: thistle;
@@ -22,11 +22,10 @@ img {
   height: 50%;
 }
 
-.c1 {
+section > article:nth-child(1) {
   left: 2.5%;
 }
-
-.c2 {
+section > article:nth-child(2) {
   right: 2.5%;
 }
 
@@ -34,4 +33,27 @@ button {
   position: absolute;
   right: calc((100% / 2) - (23.8px / 2));
   top: 290px;
+}
+
+/* ul li {
+  background-color: steelblue;
+} */
+
+button,
+ul > li {
+  border: 2px dashed deeppink;
+  color: white;
+  background-color: black;
+}
+
+input[type="email"] {
+  border: 2px solid tomato;
+}
+input[type="password"] {
+  border: 2px solid #232323;
+  border-radius: 6px;
+}
+
+section[gg="ok"] {
+  border: 2px solid black;
 }
