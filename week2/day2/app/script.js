@@ -9,6 +9,8 @@ const videos = [
   }
 ]
 
+console.log(estacosanoestadefinida)
+
 const $videosSection = document.querySelector("section")
 const $newVideoForm = document.querySelector("form")
 const $videoImageInput = $newVideoForm.querySelector("#video-image")
@@ -60,3 +62,7 @@ function printVideos() {
 }
 
 printVideos()
+
+var estacosanoestadefinida = 3
+
+console.log(estacosanoestadefinida)
