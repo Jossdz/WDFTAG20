@@ -1,0 +1,8 @@
+#title {
+  background-color: yellow;
+  transition: all 1s ease;
+}
+#header {
+  transition: all 1s ease;
+  background-color: tomato;
+}
