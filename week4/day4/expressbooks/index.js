@@ -28,11 +28,43 @@ app.get("/", async (req, res) => {
   res.render("index", { books })
 })
 
+app.get("/book/new", (req, res) => {
+  res.render("newBook")
+})
+
 app.get("/book/:bookId", async (req, res) => {
   const { bookId } = req.params
   // const book = await Book.find({ title: bookId})
   const book = await Book.findById(bookId)
   res.render("bookDetail", book)
+})
+
+app.post("/book/new", async (req, res) => {
+  const { title, subtitle, description, publisher, website, pages } = req.body
+  await Book.create({ title, subtitle, description, publisher, website, pages })
+  res.redirect("/")
+})
+
+app.post("/book/update/:bookId", async (req, res) => {
+  const { title, subtitle, description, publisher, website, pages } = req.body
+  const { bookId } = req.params
+
+  await Book.findByIdAndUpdate(bookId, {
+    title,
+    subtitle,
+    description,
+    publisher,
+    website,
+    pages
+  })
+
+  res.redirect(`/book/${bookId}`)
+})
+
+app.get("/book/delete/:bookId", async (req, res) => {
+  const { bookId } = req.params
+  await Book.findByIdAndDelete(bookId)
+  res.redirect("/")
 })
 
 const PORT = 3000
