@@ -1,11 +1,20 @@
 const express = require("express")
 const router = express.Router()
 
-const { signupView, signupProcess } = require("../controllers/auth")
-
-console.log(signupView)
+// ahora mantenemos una separacion de 'controladores' en su archivo individial
+// por lo que este archivo de rutas solo contiene eso... rutas con su respectivo controller
+//  👇 importamos los controladores
+const {
+  signupView,
+  signupProcess,
+  loginView,
+  loginProcess
+} = require("../controllers/auth")
 
 router.get("/signup", signupView)
 router.post("/signup", signupProcess)
+//login
+router.get("/login", loginView)
+router.post("/login", loginProcess)
 
 module.exports = router
