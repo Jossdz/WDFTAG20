@@ -6,7 +6,11 @@ const albumSchema = new Schema(
     genre: String,
     // TODO: add songs
     items: Number,
-    year: Number
+    year: Number,
+    artist: {
+      type: Schema.Types.ObjectId,
+      ref: "Artist"
+    }
   },
   {
     timestamps: true
