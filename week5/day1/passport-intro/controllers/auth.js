@@ -43,3 +43,21 @@ exports.logout = (req, res) => {
   req.logout()
   res.redirect("/login")
 }
+
+exports.listUsers = async (req, res) => {
+  const users = await User.find()
+  res.render("users", { users })
+}
+
+//===========SOCIAL=========
+
+exports.googleProcess = passport.authenticate("google", {
+  scope: [
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email"
+  ]
+})
+exports.googleRedirect = passport.authenticate("google", {
+  successRedirect: "/private",
+  failureRedirect: "/" // here you would redirect to the login page using traditional login approach
+})

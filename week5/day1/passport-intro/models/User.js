@@ -6,7 +6,20 @@ const userSchema = new Schema(
       type: String,
       unique: true
     },
-    password: String
+    photo: {
+      type: String,
+      default:
+        "https://pbs.twimg.com/profile_images/1285041076718514178/nGeGj7E8.jpg"
+    },
+    password: String,
+    role: {
+      type: String,
+      enum: ["ADMIN", "GUEST", "DINOSAUR"],
+      default: "GUEST"
+    },
+    googleID: String,
+    facebookID: String,
+    slackID: String
   },
   {
     timestamps: true
