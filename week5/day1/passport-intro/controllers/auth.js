@@ -61,3 +61,17 @@ exports.googleRedirect = passport.authenticate("google", {
   successRedirect: "/private",
   failureRedirect: "/" // here you would redirect to the login page using traditional login approach
 })
+
+exports.facebookProcess = passport.authenticate("facebook", {
+  scope: ["email"]
+})
+exports.facebookRedirect = passport.authenticate("facebook", {
+  successRedirect: "/private",
+  failureRedirect: "/"
+})
+
+exports.slackProcess = passport.authenticate("slack")
+exports.slackRedirect = passport.authenticate("slack", {
+  successRedirect: "/private",
+  failureRedirect: "/"
+})

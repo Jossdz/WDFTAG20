@@ -1,6 +1,8 @@
 const passport = require("passport")
 const LocalStrategy = require("passport-local").Strategy
 const GoogleStrategy = require("passport-google-oauth20").Strategy
+const FacebookStrategy = require("passport-facebook").Strategy
+const SlackStrategy = require("passport-slack").Strategy
 const { compareSync } = require("bcrypt")
 const User = require("../models/User")
 
@@ -26,7 +28,7 @@ passport.use(
     }
   )
 )
-
+//GOOGLE
 passport.use(
   new GoogleStrategy(
     {
@@ -49,6 +51,54 @@ passport.use(
     }
   )
 )
+//FACEBOOK
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_ID,
+      clientSecret: process.env.FACEBOOK_SECRET,
+      callbackURL: "http://localhost:3000/auth/facebook/callback",
+      profileFields: ["id", "email", "gender", "link", "name", "photos"]
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      const user = await User.findOne({
+        facebookID: profile.id
+      })
+      if (!user) {
+        const user = await User.create({
+          facebookID: profile.id,
+          email: profile.emails[0].value,
+          photo: profile.photos[0].value
+        })
+        done(null, user)
+      }
+      done(null, user)
+    }
+  )
+)
+//SLACK
+passport.use(
+  new SlackStrategy(
+    {
+      clientID: process.env.SLACK_ID,
+      clientSecret: process.env.SLACK_SECRET,
+      callbackURL: "/auth/slack/callback"
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      const user = await User.findOne({ slackID: profile.user.id })
+      if (!user) {
+        const user = await User.create({
+          slackID: profile.user.id,
+          email: profile.user.email,
+          photo: profile.user.image_original || profile.user.image_512
+        })
+        done(null, user)
+      }
+      done(null, user)
+    }
+  )
+)
+
 // serialize recibe el usuario que envio el callback de la(o las) strategia(s)
 passport.serializeUser((user, done) => {
   // tenemos que mandar el identificador del usuario para que deserialize verifique esta informacion en la base de datos.

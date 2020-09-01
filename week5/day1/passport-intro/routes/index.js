@@ -9,7 +9,11 @@ const {
   logout,
   listUsers,
   googleProcess,
-  googleRedirect
+  googleRedirect,
+  facebookProcess,
+  facebookRedirect,
+  slackProcess,
+  slackRedirect
 } = require("../controllers/auth")
 const { enssureLogin, checkRole } = require("../middlewares")
 const { ADMIN } = require("../roles")
@@ -32,4 +36,8 @@ router.get("/users", enssureLogin("/login"), checkRole(ADMIN), listUsers)
 
 router.get("/auth/google", googleProcess)
 router.get("/auth/google/callback", googleRedirect)
+router.get("/auth/facebook", facebookProcess)
+router.get("/auth/facebook/callback", facebookRedirect)
+router.get("/auth/slack", slackProcess)
+router.get("/auth/slack/callback", slackRedirect)
 module.exports = router
