@@ -1,0 +1,23 @@
+<h1>Ironhack</h1>
+
+
+
+{{!-- <script>
+  window.onload = async () => {
+    // const res = await fetch("http://localhost:8000/cities")
+    // const cities = await res.json()
+    // console.log(cities)
+    const {
+      data: { results: characters }
+    } = await axios.get("https://rickandmortyapi.com/api/character?page={{page}}")
+    const $body = document.querySelector("body")
+    characters.forEach(({ name, image }) => {
+      $body.innerHTML += `
+      <div>
+        <h2>${name}</h2>
+        <img src="${image}"/>
+      </div>
+    `
+    })
+  }
+</script> --}}
