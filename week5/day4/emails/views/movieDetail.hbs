@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<hr>
+<p>{{description}}</p>
+<br>
+<small>Created By: {{owner.username}} - ${{price}}.00 MXN</small>
+<form method="POST" action="/success-payment">
+  <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+    data-preference-id='{{preferenceId}}'>
+    </script>
+</form>

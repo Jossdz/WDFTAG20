@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World Ironhackers!</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16.13.0/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const root = document.getElementById("root")
+      // const mainHeading = document.createElement('h1');
+      // mainHeading.textContent = 'Hello there Ironhackers! ';
+      // root.appendChild(mainHeading);
+
+      const Name = () => <h2>Joss</h2>
+
+      const element = (
+        <div className='container'>
+          <h1>Are you React-ing Ironhackers?</h1>
+          <h3>
+            Time now is:
+            {new Date().getHours()}:{new Date().getMinutes()}:
+            {new Date().getSeconds()}
+          </h3>
+          {[1, 2, 3].map(() => (
+            <Name />
+          ))}
+        </div>
+      )
+
+      ReactDOM.render(element, root)
+    </script>
+  </body>
+</html>

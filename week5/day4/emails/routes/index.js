@@ -6,7 +6,8 @@ const {
   createMovie,
   editMovie,
   deleteMovie,
-  createMovieView
+  createMovieView,
+  successPayment
 } = require("../controllers/movies")
 
 const upload = require("../config/cloudinary")
@@ -23,5 +24,6 @@ router.get("/movies/:movieId", getMovie)
 router.post("/movies", isAuth, upload.single("image"), checkErrors(createMovie))
 router.post("/movies/edit/:movieId", editMovie)
 router.get("/movies/delete/:movieId", deleteMovie)
+router.post("/success-payment", successPayment)
 
 module.exports = router
