@@ -1,0 +1,55 @@
+<h1>{{title}}</h1>
+<h2>{{subtitle}}</h2>
+<hr>
+<p>{{description}}</p>
+<p><b>Publisher: </b> {{publisher}} - {{published}}</p>
+<a href="{{website}}"><button class="btn btn-primary">website</button></a>
+
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+  Update book
+</button>
+
+<a href="/book/delete/{{_id}}"><button class="btn btn-danger">Delete book</button></a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/book/update/{{_id}}" method="POST">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" name="title" value="{{title}}"" id=" title">
+          </div>
+          <div class="form-group">
+            <label for="subtitle">Subtitle</label>
+            <input class="form-control" type="text" name="subtitle" value="{{subtitle}}"" id=" subtitle">
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input class="form-control" type="text" name="description" value="{{description}}"" id=" description">
+          </div>
+          <div class="form-group">
+            <label for="publisher">Publisher</label>
+            <input class="form-control" type="text" name="publisher" value="{{publisher}}"" id=" publisher">
+          </div>
+          <div class="form-group">
+            <label for="website">Website</label>
+            <input class="form-control" type="text" name="website" value="{{website}}"" id=" website">
+          </div>
+          <div class="form-group">
+            <label for="pages">Pages</label>
+            <input class="form-control" type="number" name="pages" value="{{pages}}"" id=" pages" min="1">
+          </div>
+          <button type="submit" class="btn btn-large btn-primary">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

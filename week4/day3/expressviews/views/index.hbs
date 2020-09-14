@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>My first view</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+  {{#if loggedin}}
+  <h1>Bienvenido</h1>
+  {{else}}
+  <button>Login</button>
+  {{/if}}
+  {{#unless address}}
+  <h3>WARNING: We can't find the address!</h3>
+  {{/unless}}
+  <ul>
+    {{!-- {{#each cities as | city |}}
+    <li>{{city}}</li>
+    {{/each}} --}}
+    {{#each cities}}
+    <li>{{@index}} : {{this}}</li>
+    {{/each}}
+  </ul>
+  {{#with address}}
+  <p>{{street}}</p>
+  {{!-- si entramos a un bloque with o each (lo cual significa que estamos dentro de otro contexto) tendremos que salir del objeto o arreglo con ../ --}}
+  <p>{{../loggedin}}</p>
+  <p>{{../val}}</p>
+  {{/with}}
+
+  <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif">
+</body>
+
+</html>

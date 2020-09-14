@@ -1,0 +1,84 @@
+{
+  "cities": [
+    {
+      "name": "Berlin",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Miami"
+    },
+    {
+      "name": "Lisbon",
+      "id": 3
+    },
+    {
+      "name": "Mexico",
+      "id": 4
+    },
+    {
+      "name": "Sao paulo",
+      "id": 5
+    },
+    {
+      "name": "Paris",
+      "id": 6
+    },
+    {
+      "name": "Amsterdam",
+      "id": 7
+    },
+    {
+      "name": "Vancouver",
+      "id": 8
+    },
+    {
+      "name": "Mexico",
+      "id": 9
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "WebDev",
+      "type": "Full Time"
+    },
+    {
+      "id": 2,
+      "name": "WebDev",
+      "type": "Part Time"
+    },
+    {
+      "id": 3,
+      "name": "UX/UI",
+      "type": "Full Time"
+    },
+    {
+      "id": 4,
+      "name": "UX/UI",
+      "type": "Part Time"
+    }
+  ],
+  "bootcamps": [
+    {
+      "id": 1,
+      "cityId": 1,
+      "courseId": 1
+    },
+    {
+      "id": 3,
+      "cityId": 3,
+      "courseId": 1
+    },
+    {
+      "id": 6,
+      "cityId": 3,
+      "courseId": 4
+    },
+    {
+      "id": 7,
+      "cityId": 1,
+      "courseId": 3
+    }
+  ]
+}
