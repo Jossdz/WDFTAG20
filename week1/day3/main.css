@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+}
+
+.box-model {
+    background-color: #00D1AE;
+    border: 2px solid #17212e;
+    border-top-left-radius: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.circular-div {
+    background-color: #ccc;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 1px solid #fff;
+}
+
+.body-text {
+    font-size: small;
+    color: white;
+    background-color: #24CCDA;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.title {
+    margin: 10px 10px 40px 20px;
+    background-color: #78F0B7;
+    border: 2px solid #178C55;
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.card {
+    background-color: #E9E6E6;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding-top: 10px
+}
