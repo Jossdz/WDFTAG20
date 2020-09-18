@@ -73,4 +73,10 @@ router.get("/currentuser", (req, res) => {
   res.status(200).json({ user: req.user })
 })
 
+router.put("/photo", async (req, res) => {
+  const { photo } = req.body
+  await User.findByIdAndUpdate(req.user.id, { photo })
+  res.status(200).json({ message: "ok" })
+})
+
 module.exports = router

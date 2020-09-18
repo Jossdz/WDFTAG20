@@ -7,6 +7,10 @@ const userSchema = new Schema(
       type: String,
       unique: true
     },
+    photo: {
+      type: String,
+      default: "https://bucket1.glanacion.com/anexos/fotos/20/2836420.jpg"
+    },
     password: String
   },
   {

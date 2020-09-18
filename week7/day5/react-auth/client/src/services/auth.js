@@ -25,3 +25,7 @@ export const getCurrentUser = async () => {
 export const logoutP = async () => {
   await authService.get("/logout")
 }
+
+export const updateProfilePhoto = async photo => {
+  await authService.put("/photo", { photo })
+}
